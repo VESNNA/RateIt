@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		5B95FBE423996CC300136915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBE323996CC300136915 /* AppDelegate.swift */; };
 		5B95FBE623996CC300136915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBE523996CC300136915 /* SceneDelegate.swift */; };
-		5B95FBE823996CC300136915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBE723996CC300136915 /* ViewController.swift */; };
 		5B95FBEB23996CC300136915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B95FBE923996CC300136915 /* Main.storyboard */; };
 		5B95FBEE23996CC300136915 /* RateIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBEC23996CC300136915 /* RateIt.xcdatamodeld */; };
 		5B95FBF023996CC600136915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B95FBEF23996CC600136915 /* Assets.xcassets */; };
 		5B95FBF323996CC600136915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B95FBF123996CC600136915 /* LaunchScreen.storyboard */; };
+		5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFA23996D2700136915 /* MainTableViewCell.swift */; };
+		5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFB23996D2700136915 /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B95FBE023996CC300136915 /* RateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B95FBE323996CC300136915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B95FBE523996CC300136915 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B95FBE723996CC300136915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B95FBEA23996CC300136915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B95FBED23996CC300136915 /* RateIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RateIt.xcdatamodel; sourceTree = "<group>"; };
 		5B95FBEF23996CC600136915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B95FBF223996CC600136915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B95FBF423996CC600136915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B95FBFA23996D2700136915 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		5B95FBFB23996D2700136915 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,10 @@
 		5B95FBE223996CC300136915 /* RateIt */ = {
 			isa = PBXGroup;
 			children = (
+				5B95FBFA23996D2700136915 /* MainTableViewCell.swift */,
+				5B95FBFB23996D2700136915 /* MainTableViewController.swift */,
 				5B95FBE323996CC300136915 /* AppDelegate.swift */,
 				5B95FBE523996CC300136915 /* SceneDelegate.swift */,
-				5B95FBE723996CC300136915 /* ViewController.swift */,
 				5B95FBE923996CC300136915 /* Main.storyboard */,
 				5B95FBEF23996CC600136915 /* Assets.xcassets */,
 				5B95FBF123996CC600136915 /* LaunchScreen.storyboard */,
@@ -142,8 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B95FBEE23996CC300136915 /* RateIt.xcdatamodeld in Sources */,
-				5B95FBE823996CC300136915 /* ViewController.swift in Sources */,
 				5B95FBE423996CC300136915 /* AppDelegate.swift in Sources */,
+				5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */,
+				5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */,
 				5B95FBE623996CC300136915 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
