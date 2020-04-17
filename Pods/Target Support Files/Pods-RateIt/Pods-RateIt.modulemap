@@ -1,0 +1,6 @@
+framework module Pods_RateIt {
+  umbrella header "Pods-RateIt-umbrella.h"
+
+  export *
+  module * { export * }
+}
