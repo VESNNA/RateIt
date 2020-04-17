@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,9 +17,13 @@
 		5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFA23996D2700136915 /* MainTableViewCell.swift */; };
 		5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFB23996D2700136915 /* MainTableViewController.swift */; };
 		5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE13EC6240E60C8001C2C3E /* Model.swift */; };
+		5BF04A112449FFEE0091F2AB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF04A102449FFEE0091F2AB /* StorageManager.swift */; };
+		7F9F997C9608BCE5A6243D24 /* Pods_RateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BE84DF441C8FB8FA9468363 /* Pods-RateIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateIt.release.xcconfig"; path = "Target Support Files/Pods-RateIt/Pods-RateIt.release.xcconfig"; sourceTree = "<group>"; };
+		536170606DB6DD5DBFE61D32 /* Pods-RateIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateIt.debug.xcconfig"; path = "Target Support Files/Pods-RateIt/Pods-RateIt.debug.xcconfig"; sourceTree = "<group>"; };
 		5B11295D24152209001D5B67 /* NewReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReviewTableViewController.swift; sourceTree = "<group>"; };
 		5B95FBE023996CC300136915 /* RateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B95FBE323996CC300136915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +36,8 @@
 		5B95FBFA23996D2700136915 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		5B95FBFB23996D2700136915 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		5BE13EC6240E60C8001C2C3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5BF04A102449FFEE0091F2AB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F9F997C9608BCE5A6243D24 /* Pods_RateIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2BCA143B5967F750154758 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5B95FBD723996CC300136915 = {
 			isa = PBXGroup;
 			children = (
 				5B95FBE223996CC300136915 /* RateIt */,
 				5B95FBE123996CC300136915 /* Products */,
+				80AB2E79519C424BB45A22FF /* Pods */,
+				2C2BCA143B5967F750154758 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +85,7 @@
 				5B95FBFB23996D2700136915 /* MainTableViewController.swift */,
 				5B11295D24152209001D5B67 /* NewReviewTableViewController.swift */,
 				5BE13EC6240E60C8001C2C3E /* Model.swift */,
+				5BF04A102449FFEE0091F2AB /* StorageManager.swift */,
 				5B95FBE323996CC300136915 /* AppDelegate.swift */,
 				5B95FBE523996CC300136915 /* SceneDelegate.swift */,
 				5B95FBE923996CC300136915 /* Main.storyboard */,
@@ -79,6 +97,15 @@
 			path = RateIt;
 			sourceTree = "<group>";
 		};
+		80AB2E79519C424BB45A22FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				536170606DB6DD5DBFE61D32 /* Pods-RateIt.debug.xcconfig */,
+				3BE84DF441C8FB8FA9468363 /* Pods-RateIt.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B95FBF723996CC600136915 /* Build configuration list for PBXNativeTarget "RateIt" */;
 			buildPhases = (
+				AB26C7564F7976BB3139F472 /* [CP] Check Pods Manifest.lock */,
 				5B95FBDC23996CC300136915 /* Sources */,
 				5B95FBDD23996CC300136915 /* Frameworks */,
 				5B95FBDE23996CC300136915 /* Resources */,
+				AFC9C3EA11AEDC64B2ECC930 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +174,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AB26C7564F7976BB3139F472 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RateIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFC9C3EA11AEDC64B2ECC930 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RateIt/Pods-RateIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RateIt/Pods-RateIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RateIt/Pods-RateIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B95FBDC23996CC300136915 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,6 +228,7 @@
 				5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */,
 				5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */,
 				5B95FBE623996CC300136915 /* SceneDelegate.swift in Sources */,
+				5BF04A112449FFEE0091F2AB /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +370,7 @@
 		};
 		5B95FBF823996CC600136915 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536170606DB6DD5DBFE61D32 /* Pods-RateIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +389,7 @@
 		};
 		5B95FBF923996CC600136915 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BE84DF441C8FB8FA9468363 /* Pods-RateIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

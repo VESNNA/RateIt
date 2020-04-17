@@ -10,7 +10,6 @@ import UIKit
 
 class NewReviewTableViewController: UITableViewController {
     
-    var newReview: Review?
     var imageIsChaged = false
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
@@ -27,27 +26,31 @@ class NewReviewTableViewController: UITableViewController {
         
         
         /*
-        if nameTF.text != "" {
-        //
-        } else {
-            let emptyField = UIAlertController(title: "Name is reqierd", message: nil, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Fill", style: .default)
-            emptyField.addAction(okAction)
-            present(emptyField, animated: true) {
-                //
-            }
-        }
-        */
+         if nameTF.text != "" {
+         //
+         } else {
+         let emptyField = UIAlertController(title: "Name is reqierd", message: nil, preferredStyle: .alert)
+         let okAction = UIAlertAction(title: "Fill", style: .default)
+         emptyField.addAction(okAction)
+         present(emptyField, animated: true) {
+         //
+         }
+         }
+         */
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        
         saveBtn.isEnabled = false
-        
         nameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        
+        /*
+         DispatchQueue.main.async {
+         
+         }
+         */
     }
     
     //MARK: TableView Delegate
@@ -91,7 +94,7 @@ class NewReviewTableViewController: UITableViewController {
         var image: UIImage?
         
         if imageIsChaged {
-            image = newReview?.image
+            image = imageView.image
         } else {
             image = #imageLiteral(resourceName: "photoDefault")
         }
@@ -101,10 +104,28 @@ class NewReviewTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd.MM.yyyy hh:mm"
         let dateString = dateFormatter.string(from: date as Date)
         
-        newReview = Review(name: nameTF.text!,
-                           secondField: typeTF.text,
-                           date: dateString,
-                           image: image)
+        let imageData = image?.pngData()
+        
+        let newReview = Review(name: nameTF.text!,
+                               category: typeTF.text,
+                               date: dateString,
+                               imageData: imageData,
+                               rating: nil,
+                               review: nil,
+                               list: 0)
+        
+        StorageManager.saveObject(newReview)
+        
+        /*
+        newReview.name = nameTF.text!
+        newReview.category = typeTF.text!
+        newReview.date = dateString
+        newReview.imageData = imageData
+        newReview.rating = nil  //TODO
+        newReview.review = ReviewTF.text
+        
+        newReview.list = 0
+        */
     }
     
 }
