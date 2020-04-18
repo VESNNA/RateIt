@@ -49,6 +49,20 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let review = reviews[indexPath.row]
+        
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, nil) in
+            StorageManager.deleteObject(review)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        delete.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
     
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
