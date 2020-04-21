@@ -10,6 +10,7 @@ import UIKit
 
 class NewReviewTableViewController: UITableViewController {
     
+    var currentReview: Review?
     var imageIsChaged = false
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
@@ -23,20 +24,7 @@ class NewReviewTableViewController: UITableViewController {
         dismiss(animated: true)
     }
     @IBAction func SaveBtnPressed(_ sender: UIBarButtonItem) {
-        
-        
-        /*
-         if nameTF.text != "" {
-         //
-         } else {
-         let emptyField = UIAlertController(title: "Name is reqierd", message: nil, preferredStyle: .alert)
-         let okAction = UIAlertAction(title: "Fill", style: .default)
-         emptyField.addAction(okAction)
-         present(emptyField, animated: true) {
-         //
-         }
-         }
-         */
+        // TODO: AlertController, autofocus on unfilled TextField
     }
     
     override func viewDidLoad() {
@@ -46,11 +34,35 @@ class NewReviewTableViewController: UITableViewController {
         saveBtn.isEnabled = false
         nameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
-        /*
-         DispatchQueue.main.async {
-         
-         }
-         */
+        setupEditScreen()
+    }
+    
+    private func setupEditScreen() {
+        if currentReview != nil {
+            
+            setupNaviBar()
+            
+            imageIsChaged = true
+            guard let data = currentReview?.imageData, let image = UIImage(data: data) else {return}
+            
+            imageView.image = image
+            imageView.contentMode = .scaleAspectFill
+            nameTF.text = currentReview?.name
+            typeTF.text = currentReview?.category
+            ratingTF.text = currentReview?.rating
+            ReviewTF.text = currentReview?.review
+            
+        }
+    }
+    
+    private func setupNaviBar() {
+        navigationItem.leftBarButtonItem = nil
+        title = currentReview?.name
+        saveBtn.isEnabled = true
+        
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
     }
     
     //MARK: TableView Delegate
@@ -89,7 +101,7 @@ class NewReviewTableViewController: UITableViewController {
         }
     }
     
-    func saveNewReview() {
+    func saveReview() {
         
         var image: UIImage?
         
@@ -110,22 +122,22 @@ class NewReviewTableViewController: UITableViewController {
                                category: typeTF.text,
                                date: dateString,
                                imageData: imageData,
-                               rating: nil,
-                               review: nil,
+                               rating: ratingTF.text,
+                               review: ReviewTF.text,
                                list: 0)
         
-        StorageManager.saveObject(newReview)
-        
-        /*
-        newReview.name = nameTF.text!
-        newReview.category = typeTF.text!
-        newReview.date = dateString
-        newReview.imageData = imageData
-        newReview.rating = nil  //TODO
-        newReview.review = ReviewTF.text
-        
-        newReview.list = 0
-        */
+        if currentReview != nil {
+            try! realm.write {
+                currentReview!.name = newReview.name
+                currentReview?.category = newReview.category
+                currentReview?.date = newReview.date
+                currentReview?.rating = newReview.rating
+                currentReview?.review = newReview.review
+                currentReview?.list = newReview.list
+            }
+        } else {
+            StorageManager.saveObject(newReview)
+        }
     }
     
 }
