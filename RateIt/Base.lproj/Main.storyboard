@@ -86,7 +86,7 @@
                             <outlet property="delegate" destination="Yqu-AJ-QNA" id="pac-Kb-bIT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8T7-1s-gmA">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="8T7-1s-gmA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zcf-Ta-vI0">
                             <connections>
                                 <segue destination="5LL-Up-HQ0" kind="presentation" modalTransitionStyle="crossDissolve" id="pdc-mn-ZWP"/>
@@ -309,8 +309,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kdq-LQ-Cq6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZBg-Ki-gdi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ZBg-Ki-gdi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -12,8 +12,8 @@ import RealmSwift
 class MainTableViewController: UITableViewController {
     
     var reviews: Results<Review>!
+    var index: IndexPath?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,15 +21,15 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.isEmpty ? 0 : reviews.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
@@ -59,17 +59,35 @@ class MainTableViewController: UITableViewController {
             StorageManager.deleteObject(review)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        delete.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, nil) in
+            
+            self.index = indexPath
+            self.performSegue(withIdentifier: "editSegue", sender: nil)
+            
+        }
         
-        return UISwipeActionsConfiguration(actions: [delete])
+        delete.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        edit.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "editSegue" {
+            let indexP = index
+            let review = reviews[indexP!.row]
+            
+            let editVC = segue.destination as! NewReviewTableViewController
+            editVC.currentReview = review
+        }
+    }
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         guard let newReviewVC = segue.source as? NewReviewTableViewController else {return}
         
-        newReviewVC.saveNewReview()
+        newReviewVC.saveReview()
         tableView.reloadData()
     }
-
+    
 }
