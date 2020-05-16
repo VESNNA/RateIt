@@ -15,7 +15,7 @@
 		5B95FBF023996CC600136915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B95FBEF23996CC600136915 /* Assets.xcassets */; };
 		5B95FBF323996CC600136915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B95FBF123996CC600136915 /* LaunchScreen.storyboard */; };
 		5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFA23996D2700136915 /* MainTableViewCell.swift */; };
-		5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFB23996D2700136915 /* MainTableViewController.swift */; };
+		5B95FBFD23996D2700136915 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFB23996D2700136915 /* MainViewController.swift */; };
 		5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE13EC6240E60C8001C2C3E /* Model.swift */; };
 		5BF04A112449FFEE0091F2AB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF04A102449FFEE0091F2AB /* StorageManager.swift */; };
 		7F9F997C9608BCE5A6243D24 /* Pods_RateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */; };
@@ -34,7 +34,7 @@
 		5B95FBF223996CC600136915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B95FBF423996CC600136915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B95FBFA23996D2700136915 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		5B95FBFB23996D2700136915 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		5B95FBFB23996D2700136915 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5BE13EC6240E60C8001C2C3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5BF04A102449FFEE0091F2AB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5B95FBFA23996D2700136915 /* MainTableViewCell.swift */,
-				5B95FBFB23996D2700136915 /* MainTableViewController.swift */,
+				5B95FBFB23996D2700136915 /* MainViewController.swift */,
 				5B11295D24152209001D5B67 /* NewReviewTableViewController.swift */,
 				5BE13EC6240E60C8001C2C3E /* Model.swift */,
 				5BF04A102449FFEE0091F2AB /* StorageManager.swift */,
@@ -226,7 +226,7 @@
 				5B95FBE423996CC300136915 /* AppDelegate.swift in Sources */,
 				5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */,
 				5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */,
-				5B95FBFD23996D2700136915 /* MainTableViewController.swift in Sources */,
+				5B95FBFD23996D2700136915 /* MainViewController.swift in Sources */,
 				5B95FBE623996CC300136915 /* SceneDelegate.swift in Sources */,
 				5BF04A112449FFEE0091F2AB /* StorageManager.swift in Sources */,
 			);

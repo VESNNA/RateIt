@@ -113,7 +113,7 @@ class NewReviewTableViewController: UITableViewController {
         
         let date = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm"
+        dateFormatter.dateFormat = "dd.MM.yy" //"dd.MM.yyyy hh:mm"
         let dateString = dateFormatter.string(from: date as Date)
         
         let imageData = image?.pngData()
