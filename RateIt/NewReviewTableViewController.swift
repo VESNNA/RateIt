@@ -111,16 +111,10 @@ class NewReviewTableViewController: UITableViewController {
             image = #imageLiteral(resourceName: "photoDefault")
         }
         
-        let date = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy" //"dd.MM.yyyy hh:mm"
-        let dateString = dateFormatter.string(from: date as Date)
-        
         let imageData = image?.pngData()
         
         let newReview = Review(name: nameTF.text!,
                                category: typeTF.text,
-                               date: dateString,
                                imageData: imageData,
                                rating: ratingTF.text,
                                review: ReviewTF.text,
@@ -134,6 +128,7 @@ class NewReviewTableViewController: UITableViewController {
                 currentReview?.rating = newReview.rating
                 currentReview?.review = newReview.review
                 currentReview?.list = newReview.list
+                currentReview?.date = newReview.date
             }
         } else {
             StorageManager.saveObject(newReview)

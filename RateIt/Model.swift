@@ -12,20 +12,19 @@ class Review: Object {
     
     @objc dynamic var name: String = ""
     @objc dynamic var category: String?
-    @objc dynamic var date: String?
     @objc dynamic var imageData: Data?
     @objc dynamic var rating: String?
     @objc dynamic var review: String?
+    @objc dynamic var date = Date()
     
     //TODO: Some lists feature
     @objc dynamic var list: Int = 0
     
     
-    convenience init(name: String, category: String?, date: String?, imageData: Data?, rating: String?, review: String?, list: Int) {
+    convenience init(name: String, category: String?, imageData: Data?, rating: String?, review: String?, list: Int) {
         self.init()
         self.name = name
         self.category = category
-        self.date = date
         self.imageData = imageData
         self.rating = rating
         self.review = review

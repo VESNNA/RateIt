@@ -12,8 +12,9 @@ import RealmSwift
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sortingBtn: UIBarButtonItem!
+    @IBOutlet weak var reverseSortingBtn: UIBarButtonItem!
     @IBOutlet weak var sortingSegmentedControl: UISegmentedControl!
+    var ascendingSorting = true
     
     var reviews: Results<Review>!
     var index: IndexPath?
@@ -42,8 +43,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.mainFirstLbl.text = review.name
         cell.mainSecondLbl.text = review.category
-        cell.mainThirdLbl.text = review.date
         cell.thumbnailImageView.image = UIImage(data: review.imageData!)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm" //"dd.MM.yy"
+        let dateString = dateFormatter.string(from: review.date as Date)
+        cell.mainThirdLbl.text = dateString
         
         //TODO: add this parameter as optional to constructor
         cell.thumbnailImageView.layer.cornerRadius = 32.5
@@ -94,4 +99,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.reloadData()
     }
     
+    @IBAction func sortingSelection(_ sender: UISegmentedControl) {
+        sorting()
+    }
+    
+    @IBAction func reverseSorting(_ sender: UIBarButtonItem) {
+        ascendingSorting.toggle()
+        
+        if ascendingSorting {
+            reverseSortingBtn.image = #imageLiteral(resourceName: "AZ")
+        } else {
+            reverseSortingBtn.image = #imageLiteral(resourceName: "ZA")
+        }
+        
+        sorting()
+    }
+    
+    private func sorting() {
+        if sortingSegmentedControl.selectedSegmentIndex == 0 {
+            reviews = reviews.sorted(byKeyPath: "date", ascending: ascendingSorting)
+        } else {
+            reviews = reviews.sorted(byKeyPath: "name", ascending: ascendingSorting)
+        }
+        
+        tableView.reloadData()
+    }
 }

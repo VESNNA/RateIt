@@ -21,6 +21,9 @@
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortingSelection:" destination="FgS-aB-0Iy" eventType="valueChanged" id="aiZ-Ms-fxT"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KVC-YY-qYV">
                                 <rect key="frame" x="0.0" y="76" width="414" height="660"/>
@@ -113,7 +116,11 @@
                         <viewLayoutGuide key="safeArea" id="ePw-oX-SSb"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="eND-a0-iyH">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="HCH-Hm-NzU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="HCH-Hm-NzU">
+                            <connections>
+                                <action selector="reverseSorting:" destination="FgS-aB-0Iy" id="aS7-bm-4Y7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EUI-9F-y0Q">
                             <connections>
                                 <segue destination="5LL-Up-HQ0" kind="presentation" id="mbQ-n6-FF0"/>
@@ -121,8 +128,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sortingBtn" destination="HCH-Hm-NzU" id="a8p-tU-JYl"/>
-                        <outlet property="sortingSegmentedControl" destination="iRd-vs-4yS" id="UGY-8F-935"/>
+                        <outlet property="reverseSortingBtn" destination="HCH-Hm-NzU" id="ipA-pb-P8B"/>
+                        <outlet property="sortingSegmentedControl" destination="iRd-vs-4yS" id="nad-Ci-vMv"/>
                         <outlet property="tableView" destination="KVC-YY-qYV" id="CY3-PJ-CrO"/>
                         <segue destination="ehV-1g-u0E" kind="show" identifier="editSegue" id="EFd-Ve-E8E"/>
                     </connections>
