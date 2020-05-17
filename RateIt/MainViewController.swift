@@ -11,18 +11,37 @@ import RealmSwift
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    private let searchController=UISearchController(searchResultsController: nil)
+    private var ascendingSorting = true
+    private var reviews: Results<Review>!
+    private var filtredReviews: Results<Review>!
+    private var index: IndexPath?
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var reverseSortingBtn: UIBarButtonItem!
     @IBOutlet weak var sortingSegmentedControl: UISegmentedControl!
-    var ascendingSorting = true
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint! //uses to hide segmented control
     
-    var reviews: Results<Review>!
-    var index: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reviews = realm.objects(Review.self)
+        
+        //Setup Search Controller //TODO: Hide SearchBar on default, show on swipe
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     // MARK: - Table view data source
@@ -32,6 +51,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filtredReviews.count
+        }
         return reviews.isEmpty ? 0 : reviews.count
     }
     
@@ -39,7 +61,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         
-        let review = reviews[indexPath.row]
+        var review = Review()
+        
+        //TODO: Edit tableViewTopConstraint when searchBarIsActive
+        //tableViewTopConstraint.constant -= CGFloat(44)
+        if isFiltering {
+            review = filtredReviews[indexPath.row]
+        } else {
+            review = reviews[indexPath.row]
+        }
         
         cell.mainFirstLbl.text = review.name
         cell.mainSecondLbl.text = review.category
@@ -85,7 +115,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if segue.identifier == "editSegue" {
             let indexP = index
-            let review = reviews[indexP!.row]
+            var review: Review
+            if isFiltering {
+                review = filtredReviews[indexP!.row]
+            } else {
+                review = reviews[indexP!.row]
+            }
             
             let editVC = segue.destination as! NewReviewTableViewController
             editVC.currentReview = review
@@ -121,6 +156,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else {
             reviews = reviews.sorted(byKeyPath: "name", ascending: ascendingSorting)
         }
+        
+        tableView.reloadData()
+    }
+}
+
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        
+        filtredReviews = reviews.filter("name CONTAINS[c] %@ OR category CONTAINS[c] %@", searchText, searchText)
         
         tableView.reloadData()
     }

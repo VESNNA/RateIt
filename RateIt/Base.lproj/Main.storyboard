@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Reviews-->
         <scene sceneID="u0C-QP-jw3">
             <objects>
                 <viewController id="FgS-aB-0Iy" customClass="MainViewController" customModule="RateIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,7 +115,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ePw-oX-SSb"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="eND-a0-iyH">
+                    <navigationItem key="navigationItem" title="Reviews" largeTitleDisplayMode="never" id="eND-a0-iyH">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="HCH-Hm-NzU">
                             <connections>
                                 <action selector="reverseSorting:" destination="FgS-aB-0Iy" id="aS7-bm-4Y7"/>
@@ -131,6 +131,7 @@
                         <outlet property="reverseSortingBtn" destination="HCH-Hm-NzU" id="ipA-pb-P8B"/>
                         <outlet property="sortingSegmentedControl" destination="iRd-vs-4yS" id="nad-Ci-vMv"/>
                         <outlet property="tableView" destination="KVC-YY-qYV" id="CY3-PJ-CrO"/>
+                        <outlet property="tableViewTopConstraint" destination="gHg-7K-HXr" id="6Zz-Hd-0hM"/>
                         <segue destination="ehV-1g-u0E" kind="show" identifier="editSegue" id="EFd-Ve-E8E"/>
                     </connections>
                 </viewController>
