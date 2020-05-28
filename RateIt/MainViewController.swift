@@ -54,36 +54,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if isFiltering {
             return filtredReviews.count
         }
-        return reviews.isEmpty ? 0 : reviews.count
+        return reviews.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         
-        var review = Review()
-        
         //TODO: Edit tableViewTopConstraint when searchBarIsActive
         //tableViewTopConstraint.constant -= CGFloat(44)
-        if isFiltering {
-            review = filtredReviews[indexPath.row]
-        } else {
-            review = reviews[indexPath.row]
-        }
+        
+        let review = isFiltering ? filtredReviews[indexPath.row] : reviews[indexPath.row]
         
         cell.mainFirstLbl.text = review.name
         cell.mainSecondLbl.text = review.category
         cell.thumbnailImageView.image = UIImage(data: review.imageData!)
+        cell.cosmosView.rating = review.rating
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm" //"dd.MM.yy"
         let dateString = dateFormatter.string(from: review.date as Date)
         cell.mainThirdLbl.text = dateString
-        
-        //TODO: add this parameter as optional to constructor
-        cell.thumbnailImageView.layer.cornerRadius = 32.5
-        cell.thumbnailImageView.clipsToBounds = true
-        
         
         return cell
     }
@@ -119,12 +110,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if segue.identifier == "editSegue" {
             let indexP = index
-            var review: Review
-            if isFiltering {
-                review = filtredReviews[indexP!.row]
-            } else {
-                review = reviews[indexP!.row]
-            }
+            let review = isFiltering ? filtredReviews[indexP!.row] : reviews[indexP!.row]
             
             let editVC = segue.destination as! NewReviewTableViewController
             editVC.currentReview = review

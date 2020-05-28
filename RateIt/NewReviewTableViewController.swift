@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewReviewTableViewController: UITableViewController {
     
     var currentReview: Review!
     var imageIsChaged = false
+    var currentRating = 0.0
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var typeTF: UITextField!
-    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var cosmosView: CosmosView!
     @IBOutlet weak var ratingTF: UITextField!
     @IBOutlet weak var reviewTF: UITextView!
     
@@ -36,6 +38,12 @@ class NewReviewTableViewController: UITableViewController {
         nameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         setupEditScreen()
+        
+        cosmosView.settings.fillMode = .half
+        cosmosView.didTouchCosmos = { rating in
+            self.currentRating = rating
+            self.ratingTF.text = "\(Int(rating * 2))/10"
+        }
     }
     
     private func setupEditScreen() {
@@ -50,8 +58,8 @@ class NewReviewTableViewController: UITableViewController {
             imageView.contentMode = .scaleAspectFill
             nameTF.text = currentReview?.name
             typeTF.text = currentReview?.category
-            ratingControl.rating = Int(currentReview.rating)
-            ratingTF.text = "\(Int(currentReview.rating))/10"
+            cosmosView.rating = currentReview.rating
+            ratingTF.text = "\(Int(currentReview.rating * 2))/10"
             reviewTF.text = currentReview?.review
             
         }
@@ -118,7 +126,7 @@ class NewReviewTableViewController: UITableViewController {
         let newReview = Review(name: nameTF.text!,
                                category: typeTF.text,
                                imageData: imageData,
-                               rating: Double(ratingControl.rating),
+                               rating: currentRating,
                                review: reviewTF.text,
                                list: 0)
         

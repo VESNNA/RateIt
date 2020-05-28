@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import Cosmos
 
 class MainTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView! {
+        didSet {
+            thumbnailImageView.layer.cornerRadius = thumbnailImageView.frame.size.height / 2
+            thumbnailImageView.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var mainFirstLbl: UILabel!
     @IBOutlet weak var mainSecondLbl: UILabel!
     @IBOutlet weak var mainThirdLbl: UILabel!
+    @IBOutlet weak var cosmosView: CosmosView! {
+        didSet {
+            cosmosView.settings.fillMode = .half
+            cosmosView.settings.updateOnTouch = false
+        }
+    }
     
     
     override func awakeFromNib() {

@@ -44,7 +44,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainFirstLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faC-t2-qCy">
-                                                    <rect key="frame" x="95" y="10.333333333333336" width="299" height="21"/>
+                                                    <rect key="frame" x="95" y="10.333333333333336" width="304" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="UZ8-1h-T0i"/>
                                                     </constraints>
@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainSecondLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGa-7y-mt5">
-                                                    <rect key="frame" x="95" y="35.333333333333336" width="279" height="18"/>
+                                                    <rect key="frame" x="95" y="35.333333333333336" width="171" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="Fc9-hK-L6V"/>
                                                     </constraints>
@@ -70,18 +70,32 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="125" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="2St-za-zsC" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="274" y="34" width="125" height="20"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="tYD-9b-aY8"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="60M-9Y-AtC" firstAttribute="top" secondItem="Avl-ig-Y31" secondAttribute="top" constant="10" id="7nK-OP-hlP"/>
                                                 <constraint firstItem="ph2-AH-CFo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="60M-9Y-AtC" secondAttribute="trailing" constant="150" id="F3s-4k-MD4"/>
+                                                <constraint firstAttribute="trailing" secondItem="2St-za-zsC" secondAttribute="trailing" constant="15" id="GXx-sn-vTs"/>
+                                                <constraint firstItem="2St-za-zsC" firstAttribute="leading" secondItem="yGa-7y-mt5" secondAttribute="trailing" constant="8" id="HFR-gh-lS0"/>
                                                 <constraint firstItem="yGa-7y-mt5" firstAttribute="top" secondItem="faC-t2-qCy" secondAttribute="bottom" constant="4" id="Pzl-nv-mnt"/>
                                                 <constraint firstItem="faC-t2-qCy" firstAttribute="leading" secondItem="60M-9Y-AtC" secondAttribute="trailing" constant="15" id="Qyc-Gz-AmR"/>
-                                                <constraint firstAttribute="trailing" secondItem="faC-t2-qCy" secondAttribute="trailing" constant="20" id="RfC-Nx-hcj"/>
                                                 <constraint firstAttribute="trailing" secondItem="ph2-AH-CFo" secondAttribute="trailing" constant="15" id="UCf-JT-l5z"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="yGa-7y-mt5" secondAttribute="trailing" constant="20" id="gtz-ym-S6J"/>
                                                 <constraint firstItem="ph2-AH-CFo" firstAttribute="top" secondItem="yGa-7y-mt5" secondAttribute="bottom" constant="6" id="iIL-9J-5Ga"/>
                                                 <constraint firstItem="yGa-7y-mt5" firstAttribute="leading" secondItem="60M-9Y-AtC" secondAttribute="trailing" constant="15" id="m0T-vr-iV9"/>
+                                                <constraint firstItem="2St-za-zsC" firstAttribute="top" secondItem="faC-t2-qCy" secondAttribute="bottom" constant="2.6666666666666643" id="r8q-lY-iAf"/>
                                                 <constraint firstAttribute="bottom" secondItem="60M-9Y-AtC" secondAttribute="bottom" constant="10" id="ux9-pc-xsr"/>
+                                                <constraint firstAttribute="trailing" secondItem="faC-t2-qCy" secondAttribute="trailing" constant="15" id="vlz-Ox-hff"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -90,6 +104,7 @@
                                             <constraint firstAttribute="bottom" secondItem="60M-9Y-AtC" secondAttribute="bottom" constant="10" id="f2x-Sj-v2o"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="cosmosView" destination="2St-za-zsC" id="E8E-J8-fxZ"/>
                                             <outlet property="mainFirstLbl" destination="faC-t2-qCy" id="99z-6o-OOn"/>
                                             <outlet property="mainSecondLbl" destination="yGa-7y-mt5" id="Lfq-dM-Xwb"/>
                                             <outlet property="mainThirdLbl" destination="ph2-AH-CFo" id="pA4-a0-Le2"/>
@@ -240,11 +255,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="42" id="nNn-El-7R9">
-                                        <rect key="frame" x="0.0" y="478" width="414" height="42"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="100" id="nNn-El-7R9">
+                                        <rect key="frame" x="0.0" y="478" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nNn-El-7R9" id="S8w-42-YDU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26x-Wg-KeE">
@@ -257,52 +272,39 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="~/10" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EBJ-1W-D9l">
-                                                    <rect key="frame" x="77" y="12.666666666666666" width="35" height="18.666666666666664"/>
+                                                    <rect key="frame" x="77" y="12.666666666666666" width="35" height="18.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="Y2f-H7-kea"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="270" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="EMe-mc-olC" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="72" y="40" width="270" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="50"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="26x-Wg-KeE" firstAttribute="leading" secondItem="S8w-42-YDU" secondAttribute="leadingMargin" id="RtF-kS-N75"/>
+                                                <constraint firstItem="EMe-mc-olC" firstAttribute="top" secondItem="26x-Wg-KeE" secondAttribute="bottom" constant="7" id="XV7-Jl-OJ2"/>
+                                                <constraint firstAttribute="bottom" secondItem="EMe-mc-olC" secondAttribute="bottom" id="bOm-ak-CdH"/>
                                                 <constraint firstItem="EBJ-1W-D9l" firstAttribute="leading" secondItem="26x-Wg-KeE" secondAttribute="trailing" constant="5" id="ovh-Ye-5Qe"/>
+                                                <constraint firstItem="EMe-mc-olC" firstAttribute="centerX" secondItem="S8w-42-YDU" secondAttribute="centerX" id="pY3-gD-jbM"/>
                                                 <constraint firstItem="26x-Wg-KeE" firstAttribute="top" secondItem="S8w-42-YDU" secondAttribute="topMargin" id="sqX-sx-1P8"/>
                                                 <constraint firstItem="26x-Wg-KeE" firstAttribute="centerY" secondItem="EBJ-1W-D9l" secondAttribute="centerY" id="y7d-dz-8Vz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Yuf-Gf-4OF">
-                                        <rect key="frame" x="0.0" y="520" width="414" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yuf-Gf-4OF" id="ZdE-0L-7aJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tOz-FN-FBT" customClass="RatingControl" customModule="RateIt" customModuleProvider="target">
-                                                    <rect key="frame" x="34.666666666666657" y="15" width="345" height="30"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                                            <integer key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                                            <size key="value" width="30" height="30"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <outlet property="ratingTF" destination="EBJ-1W-D9l" id="DFf-aZ-VR9"/>
-                                                    </connections>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="tOz-FN-FBT" firstAttribute="centerX" secondItem="ZdE-0L-7aJ" secondAttribute="centerX" id="5as-tP-Wmm"/>
-                                                <constraint firstItem="tOz-FN-FBT" firstAttribute="centerY" secondItem="ZdE-0L-7aJ" secondAttribute="centerY" id="ivD-Je-Gvi"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="207" id="75o-ET-n7M">
-                                        <rect key="frame" x="0.0" y="580" width="414" height="207"/>
+                                        <rect key="frame" x="0.0" y="578" width="414" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="75o-ET-n7M" id="Dft-30-dcb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
@@ -355,9 +357,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cosmosView" destination="EMe-mc-olC" id="he3-8r-YAs"/>
                         <outlet property="imageView" destination="oRJ-ug-aKZ" id="8K8-AU-cgj"/>
                         <outlet property="nameTF" destination="M1O-5x-miO" id="7bv-Vg-4Pg"/>
-                        <outlet property="ratingControl" destination="tOz-FN-FBT" id="QYN-eg-gAW"/>
                         <outlet property="ratingTF" destination="EBJ-1W-D9l" id="j9w-Ga-Z8Z"/>
                         <outlet property="reviewTF" destination="7fM-6b-GTd" id="g8A-PF-8lM"/>
                         <outlet property="saveBtn" destination="gZh-gm-EN9" id="aer-R0-KwY"/>
