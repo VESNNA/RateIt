@@ -13,7 +13,7 @@ class Review: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var category: String?
     @objc dynamic var imageData: Data?
-    @objc dynamic var rating: String?
+    @objc dynamic var rating = 0.0
     @objc dynamic var review: String?
     @objc dynamic var date = Date()
     
@@ -21,7 +21,7 @@ class Review: Object {
     @objc dynamic var list: Int = 0
     
     
-    convenience init(name: String, category: String?, imageData: Data?, rating: String?, review: String?, list: Int) {
+    convenience init(name: String, category: String?, imageData: Data?, rating: Double, review: String?, list: Int) {
         self.init()
         self.name = name
         self.category = category
@@ -31,21 +31,3 @@ class Review: Object {
         self.list = list
     }
 }
-
-/*
- let image = UIImage(named: )
- guard let imageData = image?.pngData() else {return}
- 
- let newReview = Review()
- 
- newReview.name
- newReview.category
- newReview.date
- newReview.imageData
- newReview.rating
- newReview.review
- 
- newReview.list = 0
- 
- storageManager.saveObject(newReview)
- */

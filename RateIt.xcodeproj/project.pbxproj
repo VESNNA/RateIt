@@ -18,6 +18,7 @@
 		5B95FBFD23996D2700136915 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95FBFB23996D2700136915 /* MainViewController.swift */; };
 		5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE13EC6240E60C8001C2C3E /* Model.swift */; };
 		5BF04A112449FFEE0091F2AB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF04A102449FFEE0091F2AB /* StorageManager.swift */; };
+		5BF9BFAF247F972B005A675C /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9BFAE247F972B005A675C /* RatingControl.swift */; };
 		7F9F997C9608BCE5A6243D24 /* Pods_RateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		5B95FBFB23996D2700136915 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5BE13EC6240E60C8001C2C3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5BF04A102449FFEE0091F2AB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		5BF9BFAE247F972B005A675C /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8A09679A0B46E428E3889C85 /* Pods_RateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				5B11295D24152209001D5B67 /* NewReviewTableViewController.swift */,
 				5BE13EC6240E60C8001C2C3E /* Model.swift */,
 				5BF04A102449FFEE0091F2AB /* StorageManager.swift */,
+				5BF9BFAE247F972B005A675C /* RatingControl.swift */,
 				5B95FBE323996CC300136915 /* AppDelegate.swift */,
 				5B95FBE523996CC300136915 /* SceneDelegate.swift */,
 				5B95FBE923996CC300136915 /* Main.storyboard */,
@@ -225,6 +228,7 @@
 				5B95FBEE23996CC300136915 /* RateIt.xcdatamodeld in Sources */,
 				5B95FBE423996CC300136915 /* AppDelegate.swift in Sources */,
 				5B95FBFC23996D2700136915 /* MainTableViewCell.swift in Sources */,
+				5BF9BFAF247F972B005A675C /* RatingControl.swift in Sources */,
 				5BE13EC7240E60C8001C2C3E /* Model.swift in Sources */,
 				5B95FBFD23996D2700136915 /* MainViewController.swift in Sources */,
 				5B95FBE623996CC300136915 /* SceneDelegate.swift in Sources */,

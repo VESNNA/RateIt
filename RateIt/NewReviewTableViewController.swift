@@ -10,15 +10,16 @@ import UIKit
 
 class NewReviewTableViewController: UITableViewController {
     
-    var currentReview: Review?
+    var currentReview: Review!
     var imageIsChaged = false
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var typeTF: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var ratingTF: UITextField!
-    @IBOutlet weak var ReviewTF: UITextField!
+    @IBOutlet weak var reviewTF: UITextView!
     
     @IBAction func CancelBtnPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
@@ -49,8 +50,9 @@ class NewReviewTableViewController: UITableViewController {
             imageView.contentMode = .scaleAspectFill
             nameTF.text = currentReview?.name
             typeTF.text = currentReview?.category
-            ratingTF.text = currentReview?.rating
-            ReviewTF.text = currentReview?.review
+            ratingControl.rating = Int(currentReview.rating)
+            ratingTF.text = "\(Int(currentReview.rating))/10"
+            reviewTF.text = currentReview?.review
             
         }
     }
@@ -116,8 +118,8 @@ class NewReviewTableViewController: UITableViewController {
         let newReview = Review(name: nameTF.text!,
                                category: typeTF.text,
                                imageData: imageData,
-                               rating: ratingTF.text,
-                               review: ReviewTF.text,
+                               rating: Double(ratingControl.rating),
+                               review: reviewTF.text,
                                list: 0)
         
         if currentReview != nil {
